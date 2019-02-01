@@ -39,3 +39,6 @@ alias oports='sudo lsof -Pni | grep LISTEN'              # openPorts:    All lis
 #   ---------------------------
 
 alias qfind="find . -name "                 # qfind:    Quickly search for file
+alias esse="grep -vE '^$|^#' "
+alias cdm='dmesg -c > /dev/null'
+alias tdm='dmesg|tail'

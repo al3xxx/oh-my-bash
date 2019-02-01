@@ -40,4 +40,4 @@ rot13()
 
 # poor man man
 mmn () { nroff -man $1 | $PAGER; }
- 
+mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; } 
