@@ -3,7 +3,7 @@ if [ -f "/usr/bin/aws_completer" ]; then
   complete -C '/usr/bin/aws_completer' aws
 else
   echo "no AWS completion found, install aws-cli first"
-  exit 127
+  #exit 127
 fi
 function _awsListAll() {
 
