@@ -11,11 +11,6 @@ function upgrade_oh_my_bash() {
   env OSH=$OSH sh $OSH/tools/upgrade.sh
 }
 
-function take() {
-  mkdir -p $1
-  cd $1
-}
-
 function open_command() {
   local open_cmd
 

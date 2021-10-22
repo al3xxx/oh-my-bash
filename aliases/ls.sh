@@ -13,7 +13,7 @@ alias lo='ls -laSFh'            # sort by size largest to smallest
 alias lr='ls -lR'               # recursive ls
 alias lt='ls -ltr'              # sort by date
 alias lu='ls -lur'      				# sort by access time
-
+alias llk='ls --human-readable --size -1 -S --classify' # single line sorted by size
 
 #   llr:  Full Recursive Directory Listing
 #   ------------------------------------------

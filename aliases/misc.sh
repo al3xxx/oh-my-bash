@@ -2,11 +2,14 @@
 alias c='clear'
 alias cls='clear'
 alias h='history'
+alias hg='history | grep '
 alias path='echo $PATH'
 alias reload=". $HOME/.bashrc"
 alias _="sudo "
 alias __="sudo !!"
-
+alias zz="sudo -i" 
+alias become="sudo -i -u "
+alias svi="sudo vi " 
 #   ---------------------------------------
 #   7.  DATE & TIME MANAGEMENT
 #   ---------------------------------------
@@ -42,3 +45,4 @@ alias qfind="find . -name "                 # qfind:    Quickly search for file
 alias esse="grep -vE '^$|^#' "
 alias cdm='dmesg -c > /dev/null'
 alias tdm='dmesg|tail'
+alias grpe='grep'

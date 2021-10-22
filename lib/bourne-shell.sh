@@ -89,8 +89,3 @@ hstats() {
   history | awk '{print $2}' | sort | uniq -c | sort -rn | head -$NUM
 }
 
-gdir() {
-  mkdir ${1}
-  cd ${1}
-}
-

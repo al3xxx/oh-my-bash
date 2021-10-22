@@ -6,7 +6,8 @@
 
 # Prevent file overwrite on stdout redirection
 # Use `>|` to force redirection to an existing file
-set -o noclobber
+# may break scripts so out for now
+# set -o noclobber 
 
 # Update window size after every command
 shopt -s checkwinsize
@@ -22,7 +23,7 @@ bind Space:magic-space
 shopt -s globstar 2> /dev/null                                                                                   
 
 # Case-insensitive globbing (used in pathname expansion)
-shopt -s nocaseglob;
+shopt -s nocaseglob
 
 ## SMARTER TAB-COMPLETION (Readline bindings) ##
 
@@ -37,6 +38,15 @@ bind "set show-all-if-ambiguous on"
 
 # Immediately add a trailing slash when autocompleting symlinks to directories
 bind "set mark-symlinked-directories on"
+
+# Color the common prefix
+bind "set colored-completion-prefix on"
+# Color the common prefix in menu-complete
+bind " set menu-complete-display-prefix on"
+# Color files by types
+bind " set colored-stats on"
+# # Append char to indicate type
+bind "set visible-stats on"
 
 ## BETTER DIRECTORY NAVIGATION ##
 
@@ -56,6 +66,7 @@ CDPATH="."
 # Define a variable containing a path and you will be able to cd into it regardless of the directory you're in
 shopt -s cdable_vars                                                                                             
 
-
+# Add .dotfiles to globbing
+shopt -s dotglob 
 
 

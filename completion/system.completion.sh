@@ -12,6 +12,9 @@ if [ -f /etc/profile.d/bash_completion.sh ]; then
   . /etc/profile.d/bash_completion.sh
 fi
 
+# Use bash-completion, if available
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+  . /usr/share/bash-completion/bash_completion
 
 if [ $(uname) = "Darwin" ] && command -v brew &>/dev/null ; then
   BREW_PREFIX=$(brew --prefix)
