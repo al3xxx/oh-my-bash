@@ -29,6 +29,7 @@ ssh-id() {
 def_id="~/.ssh/id_rsa.pub"
 ssh_id=${$2-$def_id}
 ssh $1 "mkdir -p .ssh && cat >> .ssh/authorized_keys" < $2
+ssh $1 "chmod 600 .ssh/authorized_keys && chmod 700 .ssh"
 }
 
 # self explanatory
@@ -39,5 +40,7 @@ rot13()
 }
 
 # poor man man
-mmn () { nroff -man $1 | $PAGER; }
-mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; } 
+mmn () { [[ -n "$1" ]] && nroff -man "$1" | $PAGER; }
+mkcd () { [[ -n "$1" ]] && mkdir -p "$@" && eval cd "\"\$$#\""; } 
+psg() { [[ -n "$1" ]] && ps axuw | grep "$1" | grep -v grep; }
+

@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-shopt -s histappend # append to bash_history if Terminal.app quits
 
 ## Command history configuration
 if [ -z "$HISTFILE" ]; then
@@ -38,7 +37,7 @@ HISTFILESIZE=100000
 HISTCONTROL="erasedups:ignoreboth"
 
 # Don't record some commands
-export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
+export HISTIGNORE="&:[ ]*:exit:ls[  ]*:bg:fg:history:clear:top:ps:reset:cd[  ]*"
 
 # Use standard ISO 8601 timestamp
 # %F equivalent to %Y-%m-%d                                                                                      
@@ -61,3 +60,16 @@ bind '"\e[D": backward-char'
   #*) alias history='fc -l 1' ;;
 #esac
 
+# if hstr available
+if [[ $(which hstr) != '' ]]; then
+  alias hh=hstr
+  export HSTR_CONFIG=hicolor
+  function hstrnotiocsti {
+    { READLINE_LINE="$( { </dev/tty hstr ${READLINE_LINE}; } 2>&1 1>&3 3>&- )"; } 3>&1;
+    READLINE_POINT=${#READLINE_LINE}
+  }
+# if this is interactive shell, then bind hstr to Ctrl-r (for Vi mode check doc)
+  if [[ $- =~ .*i.* ]]; then bind -x '"\C-r": "hstrnotiocsti"'; fi
+  export HSTR_TIOCSTI=n
+fi
+# end hstr
